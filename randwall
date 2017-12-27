@@ -1,0 +1,18 @@
+#!/usr/bin/python3.5
+
+from PIL import Image, ImageDraw
+from pathlib import Path
+from subprocess import call
+import random
+
+WALL_DIR = str(Path.home()) + '/wall.png'
+
+r = random.randint(0, 255)
+g = random.randint(0, 255)
+b = random.randint(0, 255)
+
+img = Image.new("RGB", (1920, 1080), (r, g, b))
+
+img.save(WALL_DIR)
+
+call(["feh", "--bg-scale", WALL_DIR])
